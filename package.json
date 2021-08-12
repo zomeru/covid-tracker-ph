@@ -1,7 +1,7 @@
 {
   "name": "covid-19-tracker-ph",
   "version": "0.0.0",
-  "private": true,
+  "private": false,
   "homepage": "https://zomeru.github.io/covid-tracker-ph",
   "scripts": {
     "dev": "vite",
