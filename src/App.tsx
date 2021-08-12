@@ -1,11 +1,19 @@
 import React from 'react';
-import Home from './components/Home';
+import { Router, Route, Switch } from 'react-router-dom';
+import { createBrowserHistory } from 'history';
+import Home from './pages/Home';
+import Nav from './components/Nav';
 
 function App() {
+  const history = createBrowserHistory();
+
   return (
-    <React.Fragment>
-      <Home />
-    </React.Fragment>
+    <Router history={history}>
+      <Switch>
+        <Nav />
+        <Route exact path='/' component={Home} />
+      </Switch>
+    </Router>
   );
 }
 
