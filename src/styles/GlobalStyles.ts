@@ -17,8 +17,9 @@ export const GlobalStyles = createGlobalStyle`
 
     //? COLORS
     --white: #FEFEFE;
+    --gray: #b5b9b8;
     --navy-blue: #222B45;
-    --dark-blue: rgb(15, 23, 49)
+    --dark-blue: rgb(15, 23, 49);
     --sky-blue: #6EADF0;
     --blue: #0069E9;
     --red: #F6093B;
@@ -72,20 +73,16 @@ export const GlobalStyles = createGlobalStyle`
     max-width: var(--max-width);
   }
 
+   p {
+    color: var(--gray);
+  }
+
   section {
-    padding: var(--rl-space);
+    padding: 0 var(--rl-space);
   }
 
   ul, li, ol {
     list-style: none;
-  }
-
-  button {
-    font-family: var(--font-main);
-    font-size: var(--fz-md);
-    cursor: pointer;
-    outline: none;
-    border: none;
   }
 
   a {
