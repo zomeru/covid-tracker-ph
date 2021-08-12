@@ -9,8 +9,8 @@ function App() {
 
   return (
     <Router history={history}>
+      <Nav />
       <Switch>
-        <Nav />
         <Route exact path='/' component={Home} />
       </Switch>
     </Router>
