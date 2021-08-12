@@ -9,7 +9,9 @@ const Nav: React.FC<INavProps> = ({}) => {
   return (
     <StyledNav>
       <nav>
-        <div className='logo'>LOGO</div>
+        <div className='logo'>
+          <h1>COVID-19 TRACKER PH</h1>
+        </div>
         <ul className='nav-links'>
           {navLinks.map(link => {
             const { name, url } = link;
