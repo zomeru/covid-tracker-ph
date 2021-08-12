@@ -7,11 +7,11 @@ export const API_URL_REGIONS =
 export const navLinks = [
   {
     name: 'Home',
-    url: '#home',
+    url: '/#home',
   },
   {
     name: 'Cases',
-    url: '#cases',
+    url: '/#cases',
   },
   {
     name: 'Worldwide',
@@ -25,4 +25,16 @@ export const navLinks = [
     name: 'Preventions',
     url: '/prevention',
   },
+];
+
+export const statsName: Array<string> = [
+  'Total Cases',
+  'Deaths',
+  'Recovered',
+  'Tests',
+  'Active Cases',
+  'Critical Cases',
+  'Cases Today',
+  'Death Today',
+  'Recovered Today',
 ];
