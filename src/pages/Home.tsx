@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { API_URL, API_URL_REGIONS, statsName } from '../configs';
 import { ICovid } from '../types';
+import Spinner from '../components/Spinner';
 import {
   StyledHome,
   StyledHeroMessage,
   StyledHeroStats,
 } from '../styles/pageStyles/HomeStyles';
+import RegionTable from '../components/RegionTable';
 
 interface IHomeProps {}
 
@@ -14,17 +16,21 @@ const Home: React.FC<IHomeProps> = ({}) => {
   const [regionData, setRegionData] = useState();
 
   const getCovidData = async () => {
-    const res_PH = await fetch(API_URL);
-    const res_REG = await fetch(API_URL_REGIONS);
+    try {
+      const res_PH = await fetch(API_URL);
+      const res_REG = await fetch(API_URL_REGIONS);
 
-    const data_PH = await res_PH.json();
-    const data_REG = await res_REG.json();
+      const data_PH = await res_PH.json();
+      const data_REG = await res_REG.json();
 
-    setCovidData(data_PH);
-    setRegionData(data_REG.data);
+      setCovidData(data_PH);
+      setRegionData(data_REG.data);
 
-    // console.log(JSON.stringify(data_PH));
-    // console.log(JSON.stringify(data_REG.data));
+      // console.log(JSON.stringify(data_PH));
+      console.log(JSON.stringify(data_REG.data));
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   useEffect(() => {
@@ -69,15 +75,16 @@ const Home: React.FC<IHomeProps> = ({}) => {
             <p>(The spread of Covid-19 across the Philippines)</p>
             <div className='stats-grid'>
               {covidStats.map((stat, i) => (
-                <div className='box'>
+                <div key={i} className='box'>
                   <p>{statsName[i]}</p>
-                  <h4>{formatNumber(Number(stat))}</h4>
+                  <h4>{stat ? formatNumber(Number(stat)) : <Spinner />}</h4>
                 </div>
               ))}
             </div>
           </StyledHeroStats>
         </div>
       </StyledHome>
+      {/* <RegionTable /> */}
     </main>
   );
 };
