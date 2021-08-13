@@ -31,3 +31,10 @@ export interface ICovid {
   recoveredPerOneMillion: number;
   criticalPerOneMillion: number;
 }
+
+export interface IRegionCovid {
+  region: string;
+  cases: number;
+  recovered: number;
+  deaths: number;
+}
